@@ -6,7 +6,10 @@ import javax.persistence.Id;
 
 @Entity
 public class Role {
-
+	
+	
+	
+	// ------------------------------------------ class variables
 	@Id
 	String userEmail;
 	
@@ -15,6 +18,8 @@ public class Role {
 	String roleDescription;
 
 
+	
+	// ----------------------------------------- get / sets
 	public String getUserEmail() {
 		return userEmail;
 	}
@@ -35,12 +40,12 @@ public class Role {
 	}
 
 
+	
+	// ---------------------------------------- constructor
 	public Role(String userEmail, String roleDescription) {
 		this.userEmail = userEmail;
 		this.roleDescription = roleDescription;
 	}
-
-
 	public Role() {
 		super();
 	}
