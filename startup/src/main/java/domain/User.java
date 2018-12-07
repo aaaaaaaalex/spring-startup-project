@@ -18,6 +18,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class User {
 
+	// --------------------------------------- Class Variables
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
@@ -36,20 +38,45 @@ public class User {
 	@OneToMany(mappedBy="county", fetch=FetchType.EAGER, cascade= CascadeType.ALL)
 	public List<Project> projects;
 	
+	@OneToMany(fetch=FetchType.LAZY)
+	public List<Pledge> pledges;
 	
-	public User(int userId, String name, Email email, List<Project> projects) {
+	
+	
+	// --------------------------------------- Constructors
+	public User(int userId, String name, Email email, List<Project> projects, List<Pledge> pledges, String password) {
 		super();
 		this.userId = userId;
 		this.name = name;
 		this.email = email;
 		this.projects = projects;
+		this.pledges = pledges;
+		this.password = password;
 	}
-	
 	public User(String name) {
 		this.name = name;
 	}
-	
 	public User() {}
+	
+	
+	
+	// --------------------------------------- GET / SET
+	
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+
+	public List<Pledge> getPledges() {
+		return pledges;
+	}
+	public void setPledges(List<Pledge> pledges) {
+		this.pledges = pledges;
+	}
+	
 	
 	public int getUserId() {
 		return userId;
@@ -57,25 +84,28 @@ public class User {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+	
+	
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 	public Email getEmail() {
 		return email;
 	}
 	public void setEmail(Email email) {
 		this.email = email;
 	}
+	
+	
 	public List<Project> getProjects() {
 		return projects;
 	}
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
-	
-	
-	
 }
