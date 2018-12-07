@@ -2,31 +2,44 @@ package com.startups.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 
 @Entity
 public class Pledge {
 	
-	@Column(nullable=false)
-	public String user;
+	
+	
+	// ----------------------------------------- class variables
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int pledgeId;
 	
 	@Column
-	public double amount;
+	private double amount;
 	
 	
-	public Pledge(String user, double amount) {
+	
+	// ---------------------------------------- constructors
+	public Pledge(int pledgeId, double amount) {
 		super();
-		this.user = user;
+		this.pledgeId = pledgeId;
 		this.amount = amount;
 	}
-	
 	public Pledge() {}
 	
-	public String getUser() {
-		return user;
+	
+	
+	// --------------------------------------- gets / sets
+	public int getPledgeId() {
+		return pledgeId;
 	}
-	public void setUser(String user) {
-		this.user = user;
+	public void setpledgeId(int userId) {
+		this.pledgeId = userId;
 	}
+	
+	
 	public double getAmount() {
 		return amount;
 	}
