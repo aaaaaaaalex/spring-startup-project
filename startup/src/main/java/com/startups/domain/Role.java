@@ -1,4 +1,4 @@
-package domain;
+package com.startups.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

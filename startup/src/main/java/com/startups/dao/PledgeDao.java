@@ -1,4 +1,4 @@
-package dao;
+package com.startups.dao;
 
 public class PledgeDao {
 

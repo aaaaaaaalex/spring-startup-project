@@ -1,4 +1,4 @@
-package domain;
+package com.startups.domain;
 
 import java.util.List;
 
@@ -18,8 +18,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class User {
 
+
+
 	// --------------------------------------- Class Variables
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
