@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.validation.constraints.Email;
+//import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -26,26 +26,26 @@ public class User {
 	private int userId;
 	
 	@Column(nullable=false, unique=false)
-	public String name;
+	private String name;
 	
 	@Column(nullable=false, unique=true)
-	public Email email;
+	private String email;
 	
 	@Column
 	@Size(min=8)
-	public String password;
+	private String password;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="county", fetch=FetchType.EAGER, cascade= CascadeType.ALL)
-	public List<Project> projects;
+	@OneToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL)
+	private List<Project> projects;
 	
 	@OneToMany(fetch=FetchType.LAZY)
-	public List<Pledge> pledges;
+	private List<Pledge> pledges;
 	
 	
 	
 	// --------------------------------------- Constructors
-	public User(int userId, String name, Email email, List<Project> projects, List<Pledge> pledges, String password) {
+	public User(int userId, String name, String email, List<Project> projects, List<Pledge> pledges, String password) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -95,10 +95,10 @@ public class User {
 	}
 	
 	
-	public Email getEmail() {
+	public String getEmail() {
 		return email;
 	}
-	public void setEmail(Email email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 	
