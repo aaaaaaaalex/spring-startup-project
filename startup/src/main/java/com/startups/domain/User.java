@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-//import javax.validation.constraints.Email;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -25,23 +25,29 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int userId;
 	
+	
 	@Column(nullable=false, unique=false)
 	private String name;
 	
+	
 	@Column(nullable=false, unique=true)
+	@Email
 	private String email;
+	
 	
 	@Column
 	@Size(min=8)
 	private String password;
 	
+	
 	@JsonIgnore
 	@OneToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL)
 	private List<Project> projects;
 	
-	@OneToMany(fetch=FetchType.LAZY)
-	private List<Pledge> pledges;
 	
+	@OneToMany(mappedBy="user", fetch=FetchType.LAZY, cascade=CascadeType.ALL)
+	private List<Pledge> pledges;
+		
 	
 	
 	// --------------------------------------- Constructors

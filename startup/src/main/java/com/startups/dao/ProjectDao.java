@@ -12,12 +12,15 @@ import com.startups.domain.Project;
 public interface ProjectDao extends JpaRepository<Project, Integer> {
 
 	
-	@Query("SELECT * FROM Project p WHERE p.active=:active")
-	List<Project> findAllActive(@Param("active") boolean active);
+	@Query("SELECT p FROM Project p WHERE p.active=:active")
+	List<Project> findActiveProjects(@Param("active") boolean active);
 	
-	@Query("SELECT Pledges FROM Project pr WHERE p.id=:projId")
-	List<Pledge> findAllPledges(int projId);
 	
-	String editDesc(String s);
+	List<Pledge> findPledgesByProjId(@Param("projId") int projId);
+	
+	@Query("UPDATE Project "
+		  + "SET description = :description "
+		  + "WHERE projId = :projId ")
+	String editDesc(@Param("description") String description, @Param("projId") int projId);
 
 }
