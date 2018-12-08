@@ -1,0 +1,57 @@
+
+/* ---------------------- generic body styles */
+
+body {
+	max-width: 1200px;
+}
+
+/* generic container - normally a <div> */
+body .container { 
+	overflow: hidden;
+	display:block;
+	margin:auto;
+	max-width: 90%;
+	padding: 10px;
+}
+
+
+/* generic forms */
+
+body form {
+	overflow: hidden;
+	display: block;
+	margin: auto;
+	border-radius: 10px;	
+}
+
+body form .error {
+	width: 100%;
+	background-color: #f24848;	
+	color: white;
+	font-weight: 400;
+}
+
+
+
+/* ----------- styles scoped to specific pages */
+
+
+/* login/register pages */
+
+
+body#loginPage .info, 
+body#registerPage .info {
+	position: fixed;
+	top: 40px;
+	height: 40px;
+	width: 100%;
+	background-color: #fffcb7;
+}
+body#loginPage .info .message, 
+body#registerPage .info .message {
+	display: block;
+	margin:auto;
+	max-width: 90%;
+}
+
+

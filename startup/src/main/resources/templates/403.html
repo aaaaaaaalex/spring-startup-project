@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.thymeleaf.org ">
+  	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/styles.css}" />
+  	<link rel="stylesheet" type="text/css" media="all"  th:href="@{/css/flag-icon.css}" />
+  	
+  	
+<head>
+<title>Access Denied</title>
+</head>
+
+
+<body id="accessDenied">
+<header>
+    <nav>
+	    <a th:if="${session.loggedin} != null" th:href="@{/logout}" id="loginbutton"><span th:text="#{index.logout}"></span></a>
+    	<a th:if="${session.loggedin} == null" th:href="@{/login}"  id="loginbutton"><span th:text="#{index.login}"></span></a>
+    </nav>
+</header>
+
+<main class="container">
+	<h1 th:text="#{403.message}"></h1>
+	<div class="container">  
+		<a href="/login" class="button-large display-inline">Login</a>
+		<a href="/register" class="button-large display-inline">Register</a>
+	</div>
+</main>
+
+
+<footer>
+	<a th:href="@{/403}+'?lang=de'"><i class="flag-icon flag-icon-de"></i></a>
+	<a th:href="@{/403}+'?lang=ie'"><i class="flag-icon flag-icon-ie"></i></a>
+</footer>
+
+
+</body>
+</html>
