@@ -2,12 +2,16 @@ package com.startups.domain;
 
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -20,29 +24,40 @@ public class Project {
 	@Id
 	private int projId;
 	
+	
 	@NotNull
 	@Column
 	private String projName;
 	
+	
 	@Column
 	private String description;
+	
 	
 	@NotNull
 	@Column
 	private double targetAmount;
 	
+	
+	@Column
 	private Date doc;
+	
 	
 	@Column
 	private boolean active;
 	
-	@OneToMany
+	
+	@OneToMany(mappedBy="project", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<Pledge> pledges;
+	
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	private User user;
 	
 	
 	
 	// ------------------------------------ Constructor
-	public Project(int projId, String projName, String description, double targetAmount, Date doc, boolean active) {
+	public Project(int projId, String projName, String description, double targetAmount, Date doc, boolean active, User user) {
 		super();
 		this.projId = projId;
 		this.projName = projName;
@@ -50,12 +65,21 @@ public class Project {
 		this.targetAmount = targetAmount;
 		this.doc = doc;
 		this.active = active;
+		this.user = user;
 	}
 	public Project() {}
 
 	
 	
 	// ------------------------------------ Get / Set
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
 	public String getProjName() {
 		return projName;
 	}
