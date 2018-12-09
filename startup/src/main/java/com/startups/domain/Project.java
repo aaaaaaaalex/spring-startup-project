@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
@@ -52,6 +53,7 @@ public class Project {
 	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="userId")
 	private User user;
 	
 	

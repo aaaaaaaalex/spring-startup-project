@@ -12,7 +12,7 @@ public class LoginController {
 	@Autowired
 	HttpSession session;
 	
-	@GetMapping(value = "/login")
+	@GetMapping(value = {"/login", "/register"})
 	public String login() {
 		return "login";
 	}

@@ -29,13 +29,13 @@ public class Pledge {
 	
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(nullable = false)
+	@JoinColumn(name="projId")
     @OnDelete(action = OnDeleteAction.CASCADE)
 	private Project project;
 	
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(nullable = false)
+	@JoinColumn(name="userId")
     @OnDelete(action = OnDeleteAction.CASCADE)
 	private User user;
 	
