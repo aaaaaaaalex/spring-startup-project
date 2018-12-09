@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.startups.dao.ProjectDao;
+import com.startups.dao.UserDao;
 import com.startups.domain.Project;
 
 @RestController
@@ -20,12 +20,13 @@ import com.startups.domain.Project;
 public class RestControllersUser {
 
 	@Autowired
-	ProjectDao projectDao;
+	UserDao userDao;
 	
-	@GetMapping("/projects")
-	List<Project> myRestProjects()
+	@GetMapping(value="/userprojects/{id}")
+	public String showDataProvided(@PathVariable("id") int id)
 	{
-		return projectDao.findActiveProjects(true);
-	}
-	
+		userDao.findUserProjectsById(id);
+		
+		return "datareceived";
+	}	
 }
