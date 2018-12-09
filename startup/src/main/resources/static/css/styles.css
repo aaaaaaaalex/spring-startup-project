@@ -74,6 +74,10 @@ body form input.invalid{
 	border-style: solid;
 }
 
+body form input.disabled{
+	opacity: .5;
+}
+
 
 
 /* ----------- styles scoped to specific pages */

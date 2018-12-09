@@ -62,19 +62,26 @@
 				</div>
 				
 				<div class="form-group" >
-					<input type="submit" value="Sign Me Up!" />
+					<input id="registerSubmit" type="submit" value="Sign Me Up!" />
 				</div>
 				
 				<script>
 					// check that password confirmation matches password
 					var confirmPasswordListener = function(blurEvent){
-						var password = document.getElementById("registerPassword");
+						var password        = document.getElementById("registerPassword");
 						var confirmPassword = document.getElementById("registerConfirmPassword");
+						var registerSubmit  = document.getElementById("registerSubmit");
 						
 						if (password.value === confirmPassword.value){
 							confirmPassword.classList.remove("invalid");
+							registerSubmit.classList.remove("disabled");
+							registerSubmit.disabled = false
+							
 						}else{
 							confirmPassword.classList.add("invalid");
+							registerSubmit.classList.add("disabled");
+							registerSubmit.disabled = true;
+							
 						}
 					}
 					var confirmPassword = document.getElementById("registerConfirmPassword");
