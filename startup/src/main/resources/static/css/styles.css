@@ -81,8 +81,7 @@ body form input.invalid{
 
 /* login/register page */
 body#loginPage .info {
-	position: fixed;
-	top: 40px;
+	margin-bottom: 10px;
 	height: 40px;
 	width: 100%;
 	background-color: #fffcb7;

@@ -22,18 +22,12 @@ public class LoginController {
 	@GetMapping(value = "/logout")
 	public String logout() {
 		session.removeAttribute("loggedin");
-		return "/index";
+		return "index";
 	}
 	
 	@GetMapping(value = "/403")
 	public String accessDenied() {
 		return "403";
-	}
-	
-	@GetMapping("/")
-	public String index(Locale locale)
-	{
-	     return "index";
 	}
 	
 }
