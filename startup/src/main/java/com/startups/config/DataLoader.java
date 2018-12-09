@@ -23,9 +23,6 @@ public class DataLoader implements ApplicationRunner {
 		ProjectService projectService;
 		
 		@Autowired
-		PledgeService pledgeService;
-		
-		@Autowired
 		UserDao userDao;
 		
 		@Autowired

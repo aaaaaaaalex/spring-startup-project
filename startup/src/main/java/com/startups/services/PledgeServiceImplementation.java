@@ -1,5 +1,8 @@
 package com.startups.services;
 
-public class PledgeServiceImplementation {
+import org.springframework.stereotype.Service;
+
+@Service
+public class PledgeServiceImplementation implements PledgeService {
 
 }
