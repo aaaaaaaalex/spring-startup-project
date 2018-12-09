@@ -44,6 +44,8 @@ public class DataLoader implements ApplicationRunner {
 		User user1 = new User(0, "Minnie", "minnie.mouse@cit.ie",null, null, passwordEncoder.encode("password"));
 		User user2 = new User(1, "Mickie", "mickthedick.mouse@cit.ie",null, null, passwordEncoder.encode("password"));
 		User user3 = new User(2, "Goofy", "cucklord@cit.ie",null, null, passwordEncoder.encode("password"));
+		User testuser = new User(3, "TestMan", "test@test.com",null, null, passwordEncoder.encode("password"));
+		
 		userDao.save(user1);
 		userDao.save(user2);
 		userDao.save(user3);

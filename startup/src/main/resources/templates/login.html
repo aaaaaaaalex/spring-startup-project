@@ -3,6 +3,8 @@
 	xmlns:th="http://www.thymeleaf.org" >
 <head>
 <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css" />
+<link rel="stylesheet" th:href="@{/css/flag-icon.css}" type="text/css" />
+
 <title>Login</title>
 </head>
 <body id="loginPage">
@@ -75,5 +77,11 @@
 		</div>
 	</div>
 	
+	
 </body>
+
+<footer>
+			<a th:href="@{/}+'?lang=de'"><i class="flag-icon flag-icon-de"></i></a>
+    		<a th:href="@{/}+'?lang=ie'"><i class="flag-icon flag-icon-ie"></i></a>
+</footer>
 </html>

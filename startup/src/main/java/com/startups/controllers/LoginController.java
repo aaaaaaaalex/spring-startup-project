@@ -1,5 +1,7 @@
 package com.startups.controllers;
 
+import java.util.Locale;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,12 @@ public class LoginController {
 	@GetMapping(value = "/403")
 	public String accessDenied() {
 		return "403";
+	}
+	
+	@GetMapping("/")
+	public String index(Locale locale)
+	{
+	     return "index";
 	}
 	
 }
