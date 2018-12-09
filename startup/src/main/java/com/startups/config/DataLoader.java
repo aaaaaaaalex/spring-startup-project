@@ -54,7 +54,7 @@ public class DataLoader implements ApplicationRunner {
 		Date d = new Date();
 		Project p1 = new Project(0, "Super Interesting Project", "Dis cool", 50, d, true, user1);
 		Project p2 = new Project(1, "Super second Project", "Dis also cool", 500, d, true, user2);
-		Project p3 = new Project(2, "Project tree", "Uhhh yuh cool", 350, d, true, user3);
+		Project p3 = new Project(2, "Project tree", "Uhhh yuh very cool", 350, d, true, user3);
 			
 		projectService.save(p1);
 		projectService.save(p2);

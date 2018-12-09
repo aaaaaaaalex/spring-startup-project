@@ -29,7 +29,7 @@ public class Pledge {
 	
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn(name="projId")
+	@JoinColumn(name="projectId")
     @OnDelete(action = OnDeleteAction.CASCADE)
 	private Project project;
 	

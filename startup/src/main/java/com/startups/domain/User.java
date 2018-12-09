@@ -40,8 +40,7 @@ public class User {
 	private String password;
 	
 	
-	@JsonIgnore
-	@OneToMany(fetch=FetchType.EAGER, cascade= CascadeType.ALL)
+	@OneToMany(mappedBy="user", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 	private List<Project> projects;
 	
 	
