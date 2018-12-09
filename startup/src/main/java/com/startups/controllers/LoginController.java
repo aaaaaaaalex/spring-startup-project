@@ -23,7 +23,6 @@ public class LoginController {
 		return "/index";
 	}
 	
-	
 	@GetMapping(value = "/403")
 	public String accessDenied() {
 		return "403";
