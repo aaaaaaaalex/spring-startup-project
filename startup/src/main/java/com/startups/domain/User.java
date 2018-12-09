@@ -9,7 +9,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
@@ -33,6 +35,13 @@ public class User {
 	private String email;
 	
 	
+	@OneToOne
+	@JoinColumn(name="roleEmail", nullable=false)
+	private Role userRole;
+	
+	@Column
+	private boolean userEnabled;
+	
 	@Column
 	@Size(min=8)
 	private String password;
@@ -48,14 +57,16 @@ public class User {
 	
 	
 	// --------------------------------------- Constructors
-	public User(int userId, String name, String email, List<Project> projects, List<Pledge> pledges, String password) {
+	public User(boolean userEnabled, Role userRole, int userId, String name, String email, List<Project> projects, List<Pledge> pledges, String password) {
 		super();
+		this.userRole = userRole;
 		this.userId = userId;
 		this.name = name;
 		this.email = email;
 		this.projects = projects;
 		this.pledges = pledges;
 		this.password = password;
+		this.userEnabled = userEnabled;
 	}
 	public User(String name) {
 		this.name = name;
@@ -65,9 +76,24 @@ public class User {
 	
 	
 	// --------------------------------------- GET / SET
-	
 	public String getPassword() {
 		return password;
+	}
+	public Role getUserRole() {
+		return userRole;
+	}
+	
+		
+	public boolean isUserEnabled() {
+		return userEnabled;
+	}
+	public void setUserEnabled(boolean userEnabled) {
+		this.userEnabled = userEnabled;
+	}
+	
+	
+	public void setUserRole(Role userRole) {
+		this.userRole = userRole;
 	}
 	public void setPassword(String password) {
 		this.password = password;

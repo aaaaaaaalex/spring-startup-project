@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +15,6 @@ import com.startups.dao.UserDao;
 import com.startups.domain.Project;
 import com.startups.domain.Role;
 import com.startups.domain.User;
-import com.startups.services.PledgeService;
 import com.startups.services.ProjectService;
 
 
@@ -32,21 +32,21 @@ public class DataLoader implements ApplicationRunner {
 		
 		@Autowired
 		RoleDao roleDao;
+		
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
 		
 		Role role1 = new Role("minnie.mouse@cit.ie", "ROLE_API");
 		Role role2 = new Role("mickey.mouse@cit.ie", "ROLE_USER");
-		Role role3 = new Role("donald.duck@cit.ie", "ROLE_ADMIN");
+		Role role3 = new Role("donald.duck@cit.ie",  "ROLE_ADMIN");
 		roleDao.save(role1);
 		roleDao.save(role2);
 		roleDao.save(role3);
 		
-		User user1 = new User(1, "Minnie", "minnie.mouse@cit.ie",null, null, passwordEncoder.encode("password"));
-		User user2 = new User(2, "Mickie", "mickthedick.mouse@cit.ie",null, null, passwordEncoder.encode("password"));
-		User user3 = new User(3, "Goofy", "cucklord@cit.ie",null, null, passwordEncoder.encode("password"));
-		User testuser = new User(4, "TestMan", "test@test.com",null, null, passwordEncoder.encode("password"));
+		User user1 = new User(true, role1, 1, "Minnie", "minnie.mouse@cit.ie",null, null, passwordEncoder.encode("password"));
+		User user2 = new User(true, role2, 2, "Mickie", "mickthedick.mouse@cit.ie",null, null, passwordEncoder.encode("password"));
+		User user3 = new User(true, role3, 3, "Goofy", "cucklord@cit.ie",null, null, passwordEncoder.encode("password"));
 		
 		
 		Date d = new Date();
@@ -74,7 +74,7 @@ public class DataLoader implements ApplicationRunner {
 		projectService.save(p1);
 		projectService.save(p2);
 		projectService.save(p3);
-
+		
 	}
 
 }

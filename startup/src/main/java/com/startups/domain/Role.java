@@ -11,7 +11,7 @@ public class Role {
 	
 	// ------------------------------------------ class variables
 	@Id
-	String userEmail;
+	String roleEmail;
 	
 	
 	@Column
@@ -21,12 +21,12 @@ public class Role {
 	
 	// ----------------------------------------- get / sets
 	public String getUserEmail() {
-		return userEmail;
+		return roleEmail;
 	}
 
 
 	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
+		this.roleEmail = userEmail;
 	}
 
 
@@ -42,8 +42,8 @@ public class Role {
 
 	
 	// ---------------------------------------- constructor
-	public Role(String userEmail, String roleDescription) {
-		this.userEmail = userEmail;
+	public Role(String roleEmail, String roleDescription) {
+		this.roleEmail = roleEmail;
 		this.roleDescription = roleDescription;
 	}
 	public Role() {
