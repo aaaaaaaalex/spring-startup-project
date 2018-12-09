@@ -3,11 +3,13 @@ package com.startups.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.startups.dao.ProjectDao;
 import com.startups.domain.Pledge;
 import com.startups.domain.Project;
 
+@Service
 public class ProjectServiceImplementation implements ProjectService{
 
 	@Autowired 
@@ -29,5 +31,13 @@ public class ProjectServiceImplementation implements ProjectService{
 	@Override
 	public String editDesc(String description, int projId) {
 		return projDao.editDesc(description, projId);
+	}
+
+
+	@Override
+	public Project save(Project p1) {
+		if (projDao.existsByProjectName(p1.getProjName()))
+			return null;
+		return projDao.save(p1);
 	};
 }

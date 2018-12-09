@@ -23,4 +23,5 @@ public interface ProjectDao extends JpaRepository<Project, Integer> {
 		  + "WHERE projId = :projId ")
 	String editDesc(@Param("description") String description, @Param("projId") int projId);
 
+	boolean existsByProjectName(String projName);
 }

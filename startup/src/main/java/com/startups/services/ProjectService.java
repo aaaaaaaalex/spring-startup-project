@@ -11,4 +11,5 @@ public interface ProjectService {
 	List<Project> findActiveProjects(boolean active);
 	List<Pledge> findPledgesByProjId(int id);
 	String editDesc(String description, int projId);
+	Project save(Project p1);
 }
