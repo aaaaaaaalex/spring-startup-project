@@ -24,10 +24,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.csrf().disable();
 		http.authorizeRequests()
 			.antMatchers(
-					"/", "/css/**", "/h2-console", "/register", "/allprojects", "/projectdetails") .permitAll() //unauthenticated pages
+					"/v1", "/dashboard").authenticated() //authenticated pages
 			
-			//.anyRequest().authenticated()
-			
+			.anyRequest().permitAll()
 			.and().formLogin().loginPage("/login").permitAll() // custom login and 403 pages
 					.defaultSuccessUrl("/dashboard") // dashboard is the user's overview page
 					.usernameParameter("email") // the user logs in with their email, not a username

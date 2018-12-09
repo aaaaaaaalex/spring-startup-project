@@ -46,7 +46,7 @@ public class DataLoader implements ApplicationRunner {
 		
 		User user1 = new User(true, role1, 1, "Minnie", "minnie.mouse@cit.ie",null, null, passwordEncoder.encode("password"));
 		User user2 = new User(true, role2, 2, "Mickie", "mickthedick.mouse@cit.ie",null, null, passwordEncoder.encode("password"));
-		User user3 = new User(true, role3, 3, "Goofy", "cucklord@cit.ie",null, null, passwordEncoder.encode("password"));
+		User user3 = new User(true, role3, 3, "Donald", "donald.duck@cit.ie",null, null, passwordEncoder.encode("password"));
 		
 		
 		Date d = new Date();
