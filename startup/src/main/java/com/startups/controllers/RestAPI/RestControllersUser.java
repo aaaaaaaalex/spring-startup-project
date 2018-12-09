@@ -17,7 +17,7 @@ import com.startups.domain.Project;
 
 @RestController
 @RequestMapping("/v1")
-public class RestControllersProjects {
+public class RestControllersUser {
 
 	@Autowired
 	ProjectDao projectDao;
