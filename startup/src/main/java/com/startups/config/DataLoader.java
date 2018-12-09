@@ -75,6 +75,6 @@ public class DataLoader implements ApplicationRunner {
 		projectService.save(p2);
 		projectService.save(p3);
 
-		}
-
 	}
+
+}

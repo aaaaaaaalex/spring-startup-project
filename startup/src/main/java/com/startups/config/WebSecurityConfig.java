@@ -39,13 +39,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception{
 		String encodedPassword = this.passwordEncoder.encode("password");
-		
 		auth.inMemoryAuthentication() // this is only auth'ing based on a generic user with name "user" and password "pasword"
-			.withUser("user").password(encodedPassword).roles("USER").and()
-			.withUser("admin").password(encodedPassword).roles("USER","ADMIN");
+			.withUser("user@user.com").password(encodedPassword).roles("USER").and()
+			.withUser("admin@admin.com").password(encodedPassword).roles("USER","ADMIN");
+		
 	}
-
-	
-	
 	
 }
