@@ -11,7 +11,9 @@
 	<div class="container">
 		<h1> <span th:text="#{index.cliona}">Welcome, Clíona! (if you are not Clíona, stop reading immediately)</span> </h1>
 		<a class="button"><span th:text="#{index.start}"> Get Started!</span> </a>
-		
+		<nav>
+		    <a th:href="@{/dashboard}" th:text="#{index.dashboard}">Go to Dashboard</a>
+	    </nav>
 		<div class="container">
 			<p><span th:text="#{index.active}">Active projects:</span></p>
 			<div></div>
