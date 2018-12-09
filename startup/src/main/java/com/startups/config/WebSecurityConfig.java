@@ -18,16 +18,20 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	
 	// Authentication configuration for requests
 	protected void configure(HttpSecurity http) throws Exception{
+		//allow h2 console
+		http
+			.headers().disable()
+			.csrf().disable();
 		http.authorizeRequests()
 			.antMatchers(
-					"/", "/css/**", "/register", "/allprojects", "/projectdetails") .permitAll() //unauthenticated pages
+					"/", "/css/**", "/h2-console", "/register", "/allprojects", "/projectdetails") .permitAll() //unauthenticated pages
 			
-			.anyRequest().authenticated()
+			//.anyRequest().authenticated()
 			
 			.and().formLogin().loginPage("/login").permitAll() // custom login and 403 pages
 					.defaultSuccessUrl("/dashboard") // dashboard is the user's overview page
 					.usernameParameter("email") // the user logs in with their email, not a username
-			.and().exceptionHandling().accessDeniedPage("/403"); 
+			.and().exceptionHandling().accessDeniedPage("/403");
 	}
 	
 	
