@@ -55,7 +55,7 @@ public class Project {
 	
 	@JsonIgnore
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="userId")
+	@JoinColumn(name="user_id")
 	private User user;
 	
 	

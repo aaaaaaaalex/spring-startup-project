@@ -11,6 +11,4 @@ import com.startups.domain.User;
 
 public interface UserDao extends JpaRepository<User, Integer> {
 	
-	@Query("SELECT u FROM User u WHERE u.id=:userId")
-	List<Project> findUserProjectsById(@Param("userId") int userId);
 }

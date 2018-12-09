@@ -21,6 +21,10 @@ public interface ProjectDao extends JpaRepository<Project, Integer> {
 	@Query("SELECT p FROM Project p")
 	List<Project> findByProjectName(@Param("projectName") String projectName);
 	
+//	NOT WORKING
+//	@Query("SELECT p FROM Project p JOIN User u ON p.user=u WHERE u.user_id=:user_id ")
+//	List<Project> findByUserId(@Param("user_id") int userId);
+//	
 	
 	@Query("UPDATE Project "
 		  + "SET description = :description "

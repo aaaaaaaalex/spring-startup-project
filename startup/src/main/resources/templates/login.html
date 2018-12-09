@@ -5,11 +5,18 @@
 <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css" />
 <link rel="stylesheet" th:href="@{/css/flag-icon.css}" type="text/css" />
 
-<title th:text="#{login.title}"></title>
+<title th:text="#{login.title}">Login</title>
 </head>
 <body id="loginPage">
 	
-	<div class="info" th:if="${param.logout}"> <div class="message"><span th:text="#{login.logoutmessage}">You have been logged out.</span></div></div>
+	<div class="info" th:if="${param.logout}"> 
+		<div class="message">
+			<span th:text="#{login.logoutmessage}">You have been logged out.</span>
+		</div>
+	</div>
+	<div class="info" th:if="${param.signedUp}">
+		<div class="message" th:text="#{login.signedUpMessage}">You're Signed Up! Go ahead and log in!</div>
+	</div>
 	<div class="container">
 		<div class="column">
 			<h2><span th:text="#{login.title}">Login</span></h2>
