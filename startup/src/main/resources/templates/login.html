@@ -5,25 +5,25 @@
 <link rel="stylesheet" th:href="@{/css/styles.css}" type="text/css" />
 <link rel="stylesheet" th:href="@{/css/flag-icon.css}" type="text/css" />
 
-<title>Login</title>
+<title><span th:text="#{login.title}">Login</span></title>
 </head>
 <body id="loginPage">
 	
-	<div class="info" th:if="${param.logout}"> <div class="message">You have been logged out.</div></div>
+	<div class="info" th:if="${param.logout}"> <div class="message"><span th:text="#{login.logoutmessage}">You have been logged out.</span></div></div>
 	<div class="container">
 		<div class="column">
-			<h2>Login</h2>
+			<h2><span th:text="#{login.title}">Login</span></h2>
 			<form id="login-form" method="post" th:action="@{login}">
 			
-				<div class="error" th:if="${param.error}">Invalid email or password.</div>
+				<div class="error" th:if="${param.error}"><span th:text="#{login.invalidEmail}">Invalid email or password.</span></div>
 				
 				<div class="form-group">
-					<label for="loginUsername">Email: </label>
+					<label for="loginUsername"><span th:text="#{login.email}">Email: </span></label>
 					<input  id="loginUsername" type="email" name="email" required/>
 				</div>
 				
 				<div class="form-group">
-					<label for="loginPassword">Password: </label>
+					<label for="loginPassword"><span th:text="#{login.pw}">Password:</span> </label>
 					<input  id="loginPassword" type="password" name="password" required/>
 				</div>
 				
@@ -34,23 +34,23 @@
 		</div>
 		
 		<div class="column">
-			<h2>or... Sign Up!</h2>
+			<h2><span th:text="#{login.signup}">or... Sign Up!</span></h2>
 			<form id="register-form" method="post" th:action="@{register}">
 			
-				<div class="error" th:if="${param.registrationError}">An error occurred during registration</div>
+				<div class="error" th:if="${param.registrationError}"><span th:text="#{login.regerror}">An error occurred during registration</span></div>
 				
 				<div class="form-group">
-					<label for="registerUsername">Email: </label>
+					<label for="registerUsername"><span th:text="#{login.email}">Email: </span></label>
 					<input  id="registerUsername" type="email" name="email" required/>
 				</div>
 				
 				<div class="form-group">
-					<label for="registerPassword">Password: </label>
+					<label for="registerPassword"><span th:text="#{login.pw}">Password:</span> </label>
 					<input  id="registerPassword" type="password" name="password" required/>
 				</div>
 				
 				<div class="form-group">
-					<label for="registerConfirmPassword">Confirm Password: </label>
+					<label for="registerConfirmPassword"><span th:text="#{login.confPw}">Confirm Password:</span></label>
 					<input  id="registerConfirmPassword" type="password" required/>
 				</div>
 				

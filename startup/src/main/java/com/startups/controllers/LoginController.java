@@ -30,10 +30,10 @@ public class LoginController {
 		return "403";
 	}
 	
-	@GetMapping("/")
-	public String index(Locale locale)
-	{
-	     return "index";
-	}
+//	@GetMapping("/")
+//	public String index(Locale locale)
+//	{
+//	     return "index";
+//	}
 	
 }
