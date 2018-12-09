@@ -18,10 +18,14 @@ public interface ProjectDao extends JpaRepository<Project, Integer> {
 	
 	List<Pledge> findPledgesByProjectId(@Param("projectId") int projectId);
 	
+	@Query("SELECT p FROM Project p")
+	List<Project> findByProjectName(@Param("projectName") String projectName);
+	
+	
 	@Query("UPDATE Project "
 		  + "SET description = :description "
 		  + "WHERE projectId = :projectId ")
 	String editDesc(@Param("description") String description, @Param("projectId") int projectId);
 
-	boolean existsByProjectName(String projName);
+	boolean existsByProjectName(String projectName);
 }
