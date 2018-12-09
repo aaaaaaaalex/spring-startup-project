@@ -11,23 +11,23 @@ import com.startups.domain.Project;
 public class ProjectServiceImplementation implements ProjectService{
 
 	@Autowired 
-	ProjectDao projDao;
+	ProjectDao projectDao;
 	
 	
 	@Override
 	public List<Project> findActiveProjects(boolean active){
-		return projDao.findActiveProjects(active);
+		return projectDao.findActiveProjects(active);
 	}
 	
 	
 	@Override
-	public List<Pledge> findPledgesByProjId(int projId) {
-		return projDao.findPledgesByProjId(projId);
+	public List<Pledge> findPledgesByProjectId(int projectId) {
+		return projectDao.findPledgesByProjId(projectId);
 	};
 	
 	
 	@Override
-	public String editDesc(String description, int projId) {
-		return projDao.editDesc(description, projId);
+	public String editDesc(String description, int projectId) {
+		return projectDao.editDesc(description, projectId);
 	};
 }

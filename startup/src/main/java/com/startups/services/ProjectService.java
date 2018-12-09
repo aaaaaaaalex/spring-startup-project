@@ -9,6 +9,6 @@ public interface ProjectService {
 	
 	//Functions executable on Projects
 	List<Project> findActiveProjects(boolean active);
-	List<Pledge> findPledgesByProjId(int id);
-	String editDesc(String description, int projId);
+	List<Pledge> findPledgesByProjectId(int id);
+	String editDesc(String description, int projectId);
 }

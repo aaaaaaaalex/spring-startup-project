@@ -16,11 +16,11 @@ public interface ProjectDao extends JpaRepository<Project, Integer> {
 	List<Project> findActiveProjects(@Param("active") boolean active);
 	
 	
-	List<Pledge> findPledgesByProjId(@Param("projId") int projId);
+	List<Pledge> findPledgesByProjectId(@Param("projectId") int projectId);
 	
 	@Query("UPDATE Project "
 		  + "SET description = :description "
-		  + "WHERE projId = :projId ")
-	String editDesc(@Param("description") String description, @Param("projId") int projId);
+		  + "WHERE projectId = :projectId ")
+	String editDesc(@Param("description") String description, @Param("projectId") int projectId);
 
 }

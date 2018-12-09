@@ -23,12 +23,12 @@ public class Project {
 	// ------------------------------------ Class Variables
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Id
-	private int projId;
+	private int projectId;
 	
 	
 	@NotNull
 	@Column
-	private String projName;
+	private String projectName;
 	
 	
 	@Column
@@ -59,10 +59,10 @@ public class Project {
 	
 	
 	// ------------------------------------ Constructor
-	public Project(int projId, String projName, String description, double targetAmount, Date doc, boolean active, User user) {
+	public Project(int projectId, String projectName, String description, double targetAmount, Date doc, boolean active, User user) {
 		super();
-		this.projId = projId;
-		this.projName = projName;
+		this.projectId = projectId;
+		this.projectName = projectName;
 		this.description = description;
 		this.targetAmount = targetAmount;
 		this.doc = doc;
@@ -83,18 +83,18 @@ public class Project {
 	
 	
 	public String getProjName() {
-		return projName;
+		return projectName;
 	}
 	public void setProjName(String projName) {
-		this.projName = projName;
+		this.projectName = projName;
 	}
 	
 	
 	public int getProjId() {
-		return projId;
+		return projectId;
 	}
 	public void setProjId(int projId) {
-		this.projId = projId;
+		this.projectId = projId;
 	}
 	
 	
