@@ -47,7 +47,7 @@ public class Project {
 	
 	
 	@Column
-	private boolean active;
+	public boolean active;
 	
 	
 	@OneToMany(mappedBy="project", fetch=FetchType.EAGER, cascade=CascadeType.ALL)
@@ -84,18 +84,18 @@ public class Project {
 	}
 	
 	
-	public String getProjName() {
+	public String getProjectName() {
 		return projectName;
 	}
-	public void setProjName(String projName) {
+	public void setProjectName(String projName) {
 		this.projectName = projName;
 	}
 	
 	
-	public int getProjId() {
+	public int getProjectId() {
 		return projectId;
 	}
-	public void setProjId(int projId) {
+	public void setProjectId(int projId) {
 		this.projectId = projId;
 	}
 	

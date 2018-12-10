@@ -37,7 +37,7 @@ public class ProjectServiceImplementation implements ProjectService{
 
 	@Override
 	public Project save(Project p1) {
-		if (projectDao.existsByProjectName(p1.getProjName()))
+		if (projectDao.existsByProjectName(p1.getProjectName()))
 			return null;
 		return projectDao.save(p1);
 	};

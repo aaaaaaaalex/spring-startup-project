@@ -23,6 +23,12 @@ body .column {
 	min-width: 240px;
 }
 
+body .project {
+	padding: 5px;
+	border-radius: 3px;
+	margin: 2px;
+	box-shadow: 0px 0px 2px 2px #cccccc;
+}
 
 /* generic forms */
 
@@ -145,7 +151,6 @@ main{
   background: #FFFFFF;
   width: 100%;
   padding: 45px;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 header nav{

@@ -1,6 +1,8 @@
 package com.startups.controllers;
 
 
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -11,15 +13,25 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.startups.dao.ProjectDao;
+import com.startups.dao.UserDao;
 import com.startups.domain.Project;
+import com.startups.domain.User;
 import com.startups.services.ProjectService;
 
 // "APP" refers to pages/functionality intended for authenticated users.
 
 @Controller
 public class AppController {
+	
+	@Autowired
+	ProjectDao projectDao;
+	
+	@Autowired
+	UserDao userDao;
 
 	@Autowired
 	HttpSession session;
@@ -37,9 +49,14 @@ public class AppController {
 	}
 	
 	@PostMapping("/addproject")
-	public String addNewProjectSave(@Valid Project project, BindingResult binding, RedirectAttributes redirectAttributes)
+	public String addNewProjectSave(Project project, @RequestParam int userId)
 	{
-		return "redirect:project/"+project.getProjId();
+		User user = userDao.getOne(userId);
+		project.setUser(user);
+		Date date = new Date();
+		project.setDoc(date);
+		
+		return "redirect:myprojects";
 	}
 	
 }

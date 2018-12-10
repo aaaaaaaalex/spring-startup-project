@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 			.csrf().disable();
 		http.authorizeRequests()
 			.antMatchers(
-					"/v1", "/dashboard").authenticated() //authenticated pages
+					"/v1", "/dashboard", "addproject", "myprojects").authenticated() //authenticated pages
 			
 			.anyRequest().permitAll()
 			.and().formLogin().loginPage("/login").permitAll() // custom login and 403 pages

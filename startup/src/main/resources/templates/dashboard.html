@@ -9,18 +9,28 @@
 </head>
 <body id="dashboardPage">
 <header>
-		<h1><span th:text="#{dashboard.welcome}">WELCOME</span></h1>
 	    <nav>
 	        <a th:href="@{/projects}" th:text="#{index.projects}">View all Projects</a>
 		    <a th:href="@{/addproject}" th:text="#{dashboard.newproject}">Add New Project</a>
 		    <a th:if="${session.loggedin} != null" th:href="@{/logout}" id="loginbutton"><span th:text="#{index.logout}"></span></a>
 	    	<a th:if="${session.loggedin} == null" th:href="@{/login}"  id="loginbutton"><span th:text="#{index.login}"></span></a>
 	    </nav>
-    </header>
+
+</header>
+
+
+<main>
+	<div class="container">
+		<h1 th:text="#{dashboard.welcome}"> Welcome </h1>
+	</div>
+
+</main>
 </body>
 
 <footer>
+	<div class="container">
 		<a th:href="@{/}+'?lang=de'"><i class="flag-icon flag-icon-de"></i></a>
-    	<a th:href="@{/}+'?lang=ie'"><i class="flag-icon flag-icon-ie"></i></a>
+   		<a th:href="@{/}+'?lang=ie'"><i class="flag-icon flag-icon-ie"></i></a>
+   	</div>
 </footer>
 </html>
